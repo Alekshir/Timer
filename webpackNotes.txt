@@ -1,0 +1,73 @@
+webpack produce file of structure:
+
+var __webpack_modules__ = 
+(local var) __webpack_modules__: {
+    "./src/js/spiner.js": (__unused_webpack_module: any, __webpack_exports__: any, __webpack_require__: any) => void;
+    "./src/js/timer.js": (__unused_webpack_module: any, __webpack_exports__: any, __webpack_require__: any) => void;
+    "./src/audio/alarm.mp3": (__unused_webpack_module: any, __webpack_exports__: any, __webpack_require__: any) => void;
+    "./src/css/spiner.css": (__unused_webpack_module: any, __webpack_exports__: any, __webpack_require__: any) => void;
+    "./src/css/timer.css": (__unused_webpack_module: any, __webpack_exports__: any, __webpack_require__: any) => void;)
+};
+
+inside "./src/js/spiner.js": (__unused_webpack_module: any, __webpack_exports__: any, __webpack_require__: any) => void
+inside function is spiner.js code and
+
+__webpack_require__.r(__webpack_exports__); //define __esModule=true on exports object
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {//sets properties and their values to the export object
+/* harmony export */   "clearStyles": () => (/* binding */ clearStyles),
+/* harmony export */   "diagramMoveFunc": () => (/* binding */ diagramMoveFunc)
+/* harmony export */ });
+/* harmony import */ var _css_spiner_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/spiner.css */ "./src/css/spiner.css");
+
+create the module cashe
+var __webpack_module_cache__ = {};
+
+// Create the require function
+/******/ 	function __webpack_require__(moduleId) { //moduleId is "./src/js/spiner.js"
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) { //if module in the cache already return modul's export
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// otherwise create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+                                                               ALGORITHM
+Entry point is our index.js file.
+=>create cache
+var webpack_module_cache={};
+=>create exports object
+var webpack_exports={};
+=>define property es_Module of webpack_exports as true
+webpack_require.r(webpack_exports)
+=>import stuff from timer.js module
+var jstimer_IMPORTED_MODULE=webpack_require("timer.js")
+console.log(jstimer_IMPORTED_MODULE["default"]);
+
+webpack_require("timer.js") does next steps:
+=>check if the module have been already called.
+if called return webpack_module_cache__["timer.js"]. This is object of the module timer.js
+if have not been called than create new exports object and set it to the webpack_module_cache__["timer.js"]={exports:{}}=module
+execute the module function 
+webpack_modules["timer.js"](module, module.exports, webpack_require)
+
+webpak_modules is plain object of such type:
+
+({
+"timer.js":(module, module.exports, webpack_require)=>{//code of the model and assign what we export as properties of module.exports}
+})
+
+
+
+

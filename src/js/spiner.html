@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+        }
+
+        .third {
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-bottom-right-radius: 200% 100%;
+            border-top-right-radius: 200% 100%;
+            height: 200px;
+            width: 100px;
+            background: blue;
+            z-index: 1;
+        }
+
+        .first,
+        .second {
+            position: absolute;
+            height: 200px;
+            width: 100px;
+            background: red;
+        }
+
+        .first {
+            top: 0;
+            left: 0;
+            border-bottom-left-radius: 200% 100%;
+            border-top-left-radius: 200% 100%;
+            z-index: 2;
+        }
+
+        .second {
+            top: 0;
+            right: 0;
+            border-bottom-right-radius: 200% 100%;
+            border-top-right-radius: 200% 100%;
+            z-index: 3;
+            transform-origin: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="third"></div>
+        <div class="first"></div>
+        <div class="second"></div>
+    </div>
+    <script>
+        let firstEl = document.getElementsByClassName('first')[0];
+        let secondEl = document.getElementsByClassName('second')[0];
+        let thirdEl = document.getElementsByClassName('third')[0];
+
+        /*for(let i=1; i<=2; i++){
+            let startTime=performance.now();
+            let deltaTime=0;
+            while(deltaTime<5000){
+                console.log( `cycle${i}---perf${performance.now()} --- start ${startTime}`);
+                deltaTime=performance.now()-startTime;
+                console.log(secondEl.cloneNode());
+            }
+            secondEl.style.transform=`rotate(${i*50}deg)`;
+            console.log(secondEl);
+        }*/
+        
+        const diagramMoveFactory = (firstEl, secondEl, thirdEl, modifyer) => {
+            let i=0;
+            console.log(firstEl);
+
+            return () => {
+                
+
+                let modifier = 1;
+                let rotateSize = (++i) * modifyer;
+                rotateSize = ((rotateSize < 180.5) && (rotateSize > 179.5)) ? 180 : rotateSize;
+                rotateSize = ((rotateSize < 360.5) && (rotateSize > 359.5)) ? 360 : rotateSize;
+
+                if (rotateSize === 180) {
+                    console.log(180);
+                    console.log(firstEl);
+                    console.log(firstEl.style);
+                    console.log(thirdEl.style);
+
+                    firstEl.style.background = 'blue';
+                    thirdEl.style.zIndex = 4;
+                }
+
+                secondEl.style.transform = `rotate(${rotateSize}deg)`;
+
+            }
+            
+        }
+        const diagramMove=diagramMoveFactory(firstEl, secondEl, thirdEl, 1)
+
+        setInterval(diagramMove, 100);
+    </script>
+
+</body>
+
+</html>
