@@ -34,6 +34,12 @@ const mainThread = {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
+          /*{
+            loader: "@teamsupercell/typings-for-css-modules-loader",
+            options:{
+              modules:true
+            }
+          },*/
           {
             loader: 'css-loader',
             options: {
@@ -41,7 +47,7 @@ const mainThread = {
                 mode: 'local',
                 localIdentName: '[path][name]__[local]--[hash:base64:5]',
                 localIdentContext: path.resolve(__dirname, 'src'),
-                localIdentHashSalt: 'my-custom-hash'
+                localIdentHashSalt: 'my-custom-hash',
               }
             }
           }
@@ -80,7 +86,7 @@ const webworker = {
   mode: 'development',
   devtool: false,
   module: {
-    rules:[
+    rules: [
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
@@ -90,7 +96,7 @@ const webworker = {
   }
 }
 
-module.exports=[mainThread, webworker];
+module.exports = [mainThread, webworker];
 
 // module.exports = {
 //   entry: {

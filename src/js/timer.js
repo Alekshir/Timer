@@ -1,6 +1,6 @@
 import { diagramMoveFunc, clearStyles} from './spiner';
 //import { clearStyles } from './spiner'
-import '../css/timer.css';
+import timerCSS from '../css/timer.css';
 import audioFile from '../audio/alarm.mp3';
 
 let pause = false; //pause timer when button stop cliked
@@ -8,14 +8,16 @@ let pauseTime = null; //time left to count button stop clicked
 
 
 let timeToCount = 0; //time to count we set.
-let timeLeftEl = document.getElementsByClassName('time-left')[0];//html element, to show time count
+let timeLeftEl = document.getElementsByClassName(timerCSS.timeLeft)[0];//html element, to show time count
 let modifyer=null; //coefficient 1second/360deg
 let diagramMove=null; //function return another function for diagram rotation.
 let audio = new Audio();
 audio.src = audioFile;
 
-let btnStart = document.getElementsByClassName('start')[0]; //start button
-let btnPause = document.getElementsByClassName('pause')[0]; //stop button
+let btnStart = document.getElementsByClassName(timerCSS.start)[0]; //start button
+let btnPause = document.getElementsByClassName(timerCSS.stop)[0]; //stop button
+console.log("btn start");
+console.log(btnStart);
 btnPause.disabled = true; //disable pause button
 
 let worker = new Worker('worker.js');//create worker

@@ -1,8 +1,13 @@
-import '../css/spiner.css';
+import spiner from '../css/spiner.css';
 
-let firstEl = document.getElementsByClassName('first')[0]; //red semicircle
-let secondEl = document.getElementsByClassName('second')[0]; //red semicircle
-let thirdEl = document.getElementsByClassName('third')[0]; //blue semicircle
+let firstEl = document.getElementsByClassName(spiner.first)[0]; //red semicircle
+let secondEl = document.getElementsByClassName(spiner.second)[0]; //red semicircle
+let thirdEl = document.getElementsByClassName(spiner.third)[0]; //blue semicircle
+console.log("spner elements");
+console.log(spiner.firstEl);
+console.log(firstEl);
+console.log(secondEl);
+console.log(thirdEl);
 let i = 0; //counter of seconds passed
 let half=false; //is rotation more then 180 degrees or not.
 

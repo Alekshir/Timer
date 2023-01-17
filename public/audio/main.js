@@ -15,14 +15,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _css_spiner_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/spiner.css */ "./src/css/spiner.css");
 
-let firstEl = document.getElementsByClassName(_css_spiner_css__WEBPACK_IMPORTED_MODULE_0__["default"].first)[0]; //red semicircle
-let secondEl = document.getElementsByClassName(_css_spiner_css__WEBPACK_IMPORTED_MODULE_0__["default"].second)[0]; //red semicircle
-let thirdEl = document.getElementsByClassName(_css_spiner_css__WEBPACK_IMPORTED_MODULE_0__["default"].third)[0]; //blue semicircle
-console.log("spner elements");
-console.log(_css_spiner_css__WEBPACK_IMPORTED_MODULE_0__["default"].firstEl);
-console.log(firstEl);
-console.log(secondEl);
-console.log(thirdEl);
+let firstEl = document.getElementsByClassName('first')[0]; //red semicircle
+let secondEl = document.getElementsByClassName('second')[0]; //red semicircle
+let thirdEl = document.getElementsByClassName('third')[0]; //blue semicircle
 let i = 0; //counter of seconds passed
 let half = false; //is rotation more then 180 degrees or not.
 
@@ -85,15 +80,13 @@ let pause = false; //pause timer when button stop cliked
 let pauseTime = null; //time left to count button stop clicked
 
 let timeToCount = 0; //time to count we set.
-let timeLeftEl = document.getElementsByClassName(_css_timer_css__WEBPACK_IMPORTED_MODULE_1__["default"].timeLeft)[0]; //html element, to show time count
+let timeLeftEl = document.getElementsByClassName('time-left')[0]; //html element, to show time count
 let modifyer = null; //coefficient 1second/360deg
 let diagramMove = null; //function return another function for diagram rotation.
 let audio = new Audio();
 audio.src = _audio_alarm_mp3__WEBPACK_IMPORTED_MODULE_2__["default"];
-let btnStart = document.getElementsByClassName(_css_timer_css__WEBPACK_IMPORTED_MODULE_1__["default"].start)[0]; //start button
-let btnPause = document.getElementsByClassName(_css_timer_css__WEBPACK_IMPORTED_MODULE_1__["default"].stop)[0]; //stop button
-console.log("btn start");
-console.log(btnStart);
+let btnStart = document.getElementsByClassName('start')[0]; //start button
+let btnPause = document.getElementsByClassName('pause')[0]; //stop button
 btnPause.disabled = true; //disable pause button
 
 let worker = new Worker('worker.js'); //create worker
@@ -185,7 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"timePanelContainer":"css-timer__timePanelContainer--JsWXY","buttonsContainer":"css-timer__buttonsContainer--M8Y4V","start":"css-timer__start--JRCKg","stop":"css-timer__stop--jhIQc","timeLeft":"css-timer__timeLeft--zIuL8"});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"timePanelContainer":"css-timer__timePanelContainer--JsWXY","buttonsContainer":"css-timer__buttonsContainer--M8Y4V"});
 
 /***/ })
 
